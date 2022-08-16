@@ -1,0 +1,82 @@
+@import '../../../assets/scss/variables';
+
+.contact-container {
+  width: 38%;
+  margin: 2em auto;
+
+  .contact-title {
+    font-size: 28px;
+    color: $titleColor;
+    font-family: $titleFontFamily;
+    font-weight: $titleFontWeight;
+    margin-bottom: 1em;
+  }
+
+  .contact-description {
+    color: $textColor;
+    font-family: $textFontFamily;
+    font-weight: $textFontWeight;
+    margin-bottom: 3em;
+  }
+
+  form {
+    background-color: $cardBackground;
+    padding: 2em;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    .form-title {
+      font-size: large;
+      margin-top: 0;
+      color: $titleColor;
+      font-family: $titleFontFamily;
+      font-weight: $titleFontWeight;
+    }
+
+    .form-top-container {
+      display: flex;
+      justify-content: space-between;
+
+      .form-item {
+        width: 45%;
+
+        .parameter {
+          color: $titleColor;
+        }
+
+        span {
+          color: $buttonColor;
+        }
+      }
+    }
+
+    ::ng-deep .mat-form-field {
+      .mat-input-element {
+        color: $textColor;
+      }
+      &-label {
+        color: $textColor;
+      }
+      &-underline {
+        background-color: $textColor;
+      }
+      &-ripple {
+        background-color: $textColor;
+      }
+      &-required-marker {
+        color: $textColor;
+      }
+      &-appearance-fill .mat-form-field-flex {
+        background-color: $inputBackground;
+        padding: 0 !important;
+      }
+
+    }
+
+    .mat-input-element::placeholder{
+      color: $textColor;
+    }
+  }
+}

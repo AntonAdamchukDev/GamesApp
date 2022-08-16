@@ -1,0 +1,52 @@
+@import '../../../assets/scss/variables';
+
+.header-container {
+  display: flex;
+  justify-content: flex-start;
+  font-family: $titleFontFamily;
+  font-weight: $titleFontWeight;
+  font-size: 28px;
+  color: $titleColor;
+  margin-left: 3em;
+  margin-top: 2em;
+
+  div {
+    position: relative;
+    cursor: pointer;
+
+    &:last-child {
+      margin-left: 2em;
+    }
+
+    span {
+      display: none;
+      position: absolute;
+      top: -0.6em;
+      left: -0.6em;
+      z-index: 0;
+      font-size: 2em;
+      opacity: 0.3;
+    }
+  }
+
+  .active {
+    span {
+      display: block;
+    }
+  }
+
+  @media (max-width: 920px) {
+    flex-direction: column;
+
+    div {
+      &:last-child {
+        margin-left: 0;
+        margin-top: .5em;
+      }
+    }
+  }
+
+  @media (max-width: 560px) {
+    margin-left: 7%;
+  }
+}

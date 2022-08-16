@@ -1,0 +1,181 @@
+@import '../../../assets/scss/variables';
+
+.games-container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 3em auto;
+  max-width: 90%;
+
+  @media (max-width: 920px) {
+    flex-direction: column;
+  }
+
+  .menu {
+    background-color: $cardBackground;
+    width: 25%;
+    padding: 15px;
+    height: max-content;
+
+    @media (max-width: 920px) {
+      width: 100%;
+    }
+
+    .mat-form-field {
+      margin-bottom: 1em;
+    }
+
+    &-title {
+      color: $titleColor;
+      margin-top: 0;
+      margin-bottom: 2.4em;
+      font-family: $titleFontFamily;
+      font-weight: $titleFontWeight;
+      font-size: large;
+    }
+
+    &-form {
+      color: $textColor;
+
+      .menu-bottom {
+        .parameter {
+          margin-top: 0;
+        }
+
+        .dropdown-field {
+          width: calc(100% - 24px);
+
+          @media (max-width: 920px) and (min-width: 560px) {
+            width: auto;
+          }
+        }
+
+        @media (max-width: 920px) and (min-width: 561px) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .games-content {
+    margin-left: 3em;
+    width: 70%;
+
+    @media (max-width: 920px) {
+      margin-left: 0;
+      margin-top: 2.5em;
+      width: 100%;
+    }
+
+    &-item {
+
+      display: flex;
+      justify-content: flex-start;
+
+      .black-square {
+        background-color: black;
+        width: 150px;
+        height: 10em;
+      }
+
+      @media (max-width: 560px) {
+        flex-direction: column;
+
+        .black-square {
+          width: 100%;
+          height: 5em;
+        }
+      }
+    }
+
+    .game-info {
+      display: flex;
+      justify-content: space-between;
+      height: 10em;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      background-color: $cardBackground;
+      padding: 15px;
+      margin-bottom: 10px;
+      width: 100%;
+
+      .game-title {
+        color: $titleColor;
+        font-family: $titleFontFamily;
+        margin-top: 0;
+        font-size: large;
+      }
+
+      .game-release {
+        color: $textColor;
+        font-family: $textFontFamily;
+        font-size: medium;
+      }
+
+      .game-summary {
+        color: $textColor;
+        font-family: $textFontFamily;
+        font-size: small;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 5px;
+      }
+
+      .game-rating {
+        background-color: $buttonColor;
+        font-weight: $titleFontWeight;
+        color: $titleColor;
+        padding: 0.5em;
+        border-radius: 50%;
+        height: max-content;
+        margin: auto 1em auto 1.5em;
+      }
+    }
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.arrow-icon {
+  cursor: pointer;
+}
+
+::ng-deep .mat-form-field {
+  .mat-input-element {
+    color: $textColor;
+  }
+  &-label {
+    color: $textColor;
+  }
+  &-underline {
+    background-color: $textColor;
+  }
+  &-ripple {
+    background-color: $textColor;
+  }
+  &-required-marker {
+    color: $textColor;
+  }
+  &-appearance-fill &-flex {
+    background-color: $inputBackground;
+    padding: 0 !important;
+  }
+}
+
+::ng-deep .mat-select-value{
+  color: $textColor!important;
+}
+
+.mat-input-element::placeholder{
+  color: $textColor;
+}
+
+.mat-option {
+  background: $inputBackground !important;
+  color: $textColor !important;
+}

@@ -1,0 +1,35 @@
+<div class="contact-container">
+  <div class="contact-title">
+    {{'Get in touch' | uppercase}}
+  </div>
+  <div class="contact-description">
+    Trysail transom furl Sea Legs scallywag Jack Ketch chandler mizzenmast reef sails skysail.
+    Shiver me timbers loot bucko belaying pin Sea Legs boom gunwalls booty jury mast fore.
+  </div>
+  <form [formGroup]="contactForm">
+    <p class="form-title">Contact Form</p>
+    <div class="form-top-container">
+      <div class="form-item">
+        <p class="parameter">Name <span>*</span></p>
+        <mat-form-field appearance="fill">
+          <input type="text" matInput formControlName="name">
+        </mat-form-field>
+      </div>
+      <div class="form-item">
+        <p class="parameter">Email Address <span>*</span></p>
+        <mat-form-field appearance="fill">
+          <input type="text" matInput formControlName="email">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <p class="parameter">Message <span>*</span></p>
+    <mat-form-field appearance="fill">
+      <textarea type="text" matInput formControlName="message"></textarea>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button>Send</button>
+    </div>
+  </form>
+</div>

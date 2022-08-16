@@ -1,0 +1,56 @@
+<div class="games-container">
+  <div class="menu">
+    <p class="menu-title">Filter results</p>
+
+    <form class="menu-form" [formGroup]="sortingForm">
+      <p class="parameter">Name (contains)</p>
+      <mat-form-field appearance="fill">
+        <input type="text" matInput formControlName="name" placeholder="Text string">
+      </mat-form-field>
+
+      <div class="menu-bottom">
+
+        <div>
+          <p class="parameter">Minimum Score</p>
+          <mat-form-field appearance="fill">
+            <input min="1" max="100" type="number" matInput formControlName="score" placeholder="1-100">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <p class="parameter">Order By</p>
+          <div>
+            <mat-icon class="arrow-icon" (click)="toggleDir()" *ngIf="!isAscending">arrow_downward</mat-icon>
+            <mat-icon class="arrow-icon" (click)="toggleDir()" *ngIf="isAscending">arrow_upward</mat-icon>
+            <mat-form-field class="dropdown-field" appearance="fill">
+              <mat-select formControlName="parameter" (selectionChange)="setSortParameter()">
+                <mat-option [value]="parameter" *ngFor="let parameter of parameters">{{ parameter }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="button-container">
+          <button (click)="clearForm()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="games-content">
+    <ng-container *ngIf="data$ | async; else loader" >
+      <div *ngFor="let game of data$ | async | filter: sortingForm.value | sort: sortConfig" class="games-content-item">
+        <div class="black-square"></div>
+        <div class="game-info">
+          <div>
+            <p class="game-title">{{game.name}}</p>
+            <p class="game-release">Release Date: {{game.first_release_date | date:'dd/MM/yyyy'}}</p>
+            <div class="game-summary">[Summary] {{game.summary}}</div>
+          </div>
+          <div class="game-rating">{{game.rating | number: '1.0-0'}}</div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #loader>
+      <app-loader></app-loader>
+    </ng-template>
+  </div>
+</div>
